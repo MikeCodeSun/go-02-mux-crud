@@ -31,7 +31,7 @@ func getAllMoives(w http.ResponseWriter, r *http.Request){
 	
 }
 
-func getHome(w http.ResponseWriter, r *http.Request){
+func helloHome(w http.ResponseWriter, r *http.Request){
 	fmt.Fprintf(w, "hello")
 }
 
@@ -101,7 +101,7 @@ func main() {
 	moives = append(moives, Movie{ID: 2, Name: "good girl", Director: &Director{Name: "Jack", ID: 2}})
 
 	r := mux.NewRouter()
-	r.HandleFunc("/", getHome).Methods("GET")
+	r.HandleFunc("/", helloHome).Methods("GET")
 	r.HandleFunc("/moive", getAllMoives).Methods("GET")
 	r.HandleFunc("/moive/{id}", deleteMoive).Methods("DELETE")
 	r.HandleFunc("/moive/{id}", getOneMoive).Methods("GET")
