@@ -25,7 +25,7 @@ var moives []Movie
 
 
 
-func helloHandler(w http.ResponseWriter, r *http.Request){
+func getAllMoives(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("content-Type", "application/json")
 	json.NewEncoder(w).Encode(moives)
 	
@@ -102,7 +102,7 @@ func main() {
 
 	r := mux.NewRouter()
 	r.HandleFunc("/", getHome).Methods("GET")
-	r.HandleFunc("/moive", helloHandler).Methods("GET")
+	r.HandleFunc("/moive", getAllMoives).Methods("GET")
 	r.HandleFunc("/moive/{id}", deleteMoive).Methods("DELETE")
 	r.HandleFunc("/moive/{id}", getOneMoive).Methods("GET")
 	r.HandleFunc("/moive", createMovie).Methods("POST")
