@@ -78,7 +78,7 @@ func createMovie(w http.ResponseWriter, r *http.Request){
 }
 
 // update moive
-func updateFunc(w http.ResponseWriter, r *http.Request){
+func updateMoive(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("Content-Type", "application/json")
 	var moive Movie
 	json.NewDecoder(r.Body).Decode(&moive)
@@ -106,7 +106,7 @@ func main() {
 	r.HandleFunc("/moive/{id}", deleteMoive).Methods("DELETE")
 	r.HandleFunc("/moive/{id}", getOneMoive).Methods("GET")
 	r.HandleFunc("/moive", createMovie).Methods("POST")
-	r.HandleFunc("/moive/{id}", updateFunc).Methods("PATCH")
+	r.HandleFunc("/moive/{id}", updateMoive).Methods("PATCH")
 	
 	fmt.Println("go run server")
 	log.Fatal(http.ListenAndServe(":8000", r))
