@@ -107,7 +107,7 @@ func main() {
 	r.HandleFunc("/moive/{id}", getOneMoive).Methods("GET")
 	r.HandleFunc("/moive", createMovie).Methods("POST")
 	r.HandleFunc("/moive/{id}", updateFunc).Methods("PATCH")
-	fmt.Printf("the movie is %v", moives)
+	
 	fmt.Println("go run server")
 	log.Fatal(http.ListenAndServe(":8000", r))
 }
